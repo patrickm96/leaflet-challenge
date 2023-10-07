@@ -40,7 +40,7 @@ function createLegend() {
         "<h3>Legend" + "</h3>",
         "<table>",
         "<th>" + "Color" + "</th>",
-        "<th>" + "Magnitude (md)" + "</th>",
+        "<th>" + "Depth (km)" + "</th>",
         "<tr>",
         "<td class='greaterthan90'>" + "</td>",
         "<td style='text-align: center;'>" +"> 90" + "</td>",
