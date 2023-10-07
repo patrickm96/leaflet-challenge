@@ -144,7 +144,7 @@ let EarthquakeMarkers = [];
     + "<br>" +
     "<b>Latitude: </b>" + latitude
     + "<br>" +
-    "<a href=" + url + " target=" + "_blank" + ">" + "More Details" + "</a>"
+    "<a href=" + url + " target=_blank>" + "More Details" + "</a>"
     );
     // Add the marker to the bikeMarkers array.
     EarthquakeMarkers.push(EarthquakeMarker);
