@@ -121,7 +121,7 @@ let All_EarthquakeMarkers = [];
     }
 
     let EarthquakeMarker = L.circle([latitude, longitude], {
-        fillOpacity: 0.7,
+        fillOpacity: 0.6,
         color: 'black',
         weight: 1,
         fillColor: color,
