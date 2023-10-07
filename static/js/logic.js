@@ -66,13 +66,6 @@ function createLegend() {
         "<td style='text-align: center;'>" +"< 10" + "</td>",
         "</tr>",
         "</table>"
-        // "<p>Depth (km) color legend" + "</p>",
-        // "<p class='greaterthan90'>" + "> 90" + "</p>",
-        // "<p class='greaterthan70'>" + "70 - 90" + "</p>",
-        // "<p class='greaterthan50'>" + "50 - 70" + "</p>",
-        // "<p class='greaterthan30'>" + "30 - 50" + "</p>",
-        // "<p class='greaterthan10'>" + "10 - 30" + "</p>",
-        // "<p class='lessthan10'>" + "< 10" + "</p>"
       ].join("");
       return div;
     };
