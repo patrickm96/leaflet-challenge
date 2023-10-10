@@ -3,32 +3,32 @@ let mapZoomLevel = 9;
 let myMap;
 
 // Create the createMap function.
-function createMap(Earthquakes) {
-  // Create the tile layer that will be the background of our map.
+function createMap(EarthquakeData) {
+// Create the tile layer that will be the background of our map.
 let backgroundMap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
-  // Create a baseMaps object to hold the map layer.
+// Create a baseMaps object to hold the map layer.
 let BaseMaps = {
   "Street Map": backgroundMap
 };
-  // Create an overlayMaps object to hold the Earthquakes layer.
+// Create an overlayMaps object to hold the Earthquakes layer.
 let overlayMaps = {
-  "Earthquakes": Earthquakes
+  "Earthquakes": EarthquakeData
 };
-  // Create the map object with options.
+// Create the map object with options.
 myMap = L.map("map", {
     center: CenterCoords,
     zoom: mapZoomLevel,
-    layers: [backgroundMap, Earthquakes]
+    layers: [backgroundMap, EarthquakeData]
 })
-  // Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
+// Create a layer control, and pass it baseMaps and overlayMaps. Add the layer control to the map.
 L.control.layers(BaseMaps, overlayMaps).addTo(myMap);
 createLegend();
 }
 
 function createLegend() {
-    // Create a legend to display information about Earthquake depths.
+// Create a legend to display information about Earthquake depths.
     let legend = L.control({
       position: "bottomright"
     });
@@ -69,15 +69,15 @@ function createLegend() {
       return div;
     };
   
-    // Add the info legend to the map.
+// Add the info legend to the map.
     legend.addTo(myMap);
   }  
 
 // Create the createMarkers function.
 function createMarkers(response) {
 let All_EarthquakeMarkers = [];
-  // Loop through the Earthquakes array.
-    // For each earthquake, create a marker, and bind a popup with additional information regarding the earthquake.
+// Loop through the Earthquakes array.
+// For each earthquake, create a marker, and bind a popup with additional information regarding the earthquake.
   for (let i = 0; i < response.features.length; i++) {
     let earthquake = response.features[i];
     let longitude = earthquake.geometry.coordinates[0];
@@ -88,18 +88,18 @@ let All_EarthquakeMarkers = [];
     let url = earthquake.properties.url;
 
     let timestamp = earthquake.properties.time;
-    // Create a Date object from the timestamp
+// Create a Date object from the timestamp
     let date = new Date(timestamp);
-    // Extract date and time components
+// Extract date and time components
     let year = date.getFullYear();
     let month = String(date.getMonth() + 1).padStart(2, '0'); // Months are zero-based
     let day = String(date.getDate()).padStart(2, '0');
     let hours = String(date.getHours() + 5).padStart(2, '0');
     let minutes = String(date.getMinutes()).padStart(2, '0');
-    // Create a formatted date and time string
+// Create a formatted date and time string
     let formattedDateTime = `${month}/${day}/${year} ${hours}:${minutes}`;
 
-    //Format circles based on earthquake depth.
+//Format circles based on earthquake depth.
     let color = "";
     if (depth > 90) {
       color = "rgb(153,0,0)";
@@ -141,10 +141,10 @@ let All_EarthquakeMarkers = [];
     + "<br>" +
     "<a href=" + url + " target=_blank>" + "More Details" + "</a>"
     );
-    // Add the marker to the EarhquakeMarkers array.
+// Add the marker to the EarhquakeMarkers array.
     All_EarthquakeMarkers.push(EarthquakeMarker);
   }
-  // Create a layer group that's made from the All_EarthquakeMarkers array, and pass it to the createMap function.
+// Create a layer group that's made from the All_EarthquakeMarkers array, and pass it to the createMap function.
   createMap(L.layerGroup(All_EarthquakeMarkers));
 }
 
