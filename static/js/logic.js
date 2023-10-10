@@ -124,7 +124,9 @@ let All_EarthquakeMarkers = [];
         fillOpacity: 0.6,
         color: 'black',
         weight: 1,
+        //Fill color based on depth
         fillColor: color,
+        //Set marker size based on magnitude
         radius: magnitude * 2000
     }).bindPopup(
     "<b>Date/Time: </b>" + formattedDateTime + " (UTC)"
