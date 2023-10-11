@@ -1,4 +1,4 @@
-let CenterCoords = [37.2960514,-122.1457572]; //San Jose
+let CenterCoords = [33.4934012,-117.2130385]; //Temecula, CA
 let mapZoomLevel = 9;
 let myMap;
 
@@ -127,7 +127,7 @@ let All_EarthquakeMarkers = [];
         //Fill color based on depth
         fillColor: color,
         //Set marker size based on magnitude
-        radius: magnitude * 2000
+        radius: magnitude * 3000
     }).bindPopup(
     "<b>Date/Time: </b>" + formattedDateTime + " (UTC)"
     + "<br>" +
@@ -137,9 +137,9 @@ let All_EarthquakeMarkers = [];
     + "<br>" +
     "<b>Place: </b>" + place
     + "<br>" +
-    "<b>Longitude: </b>" + longitude
-    + "<br>" +
     "<b>Latitude: </b>" + latitude
+    + "<br>" +
+    "<b>Longitude: </b>" + longitude
     + "<br>" +
     "<a href=" + url + " target=_blank>" + "More Details" + "</a>"
     );
