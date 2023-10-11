@@ -1,6 +1,8 @@
 # leaflet-challenge
 Module 15 Challenge
 
+Please use style.css in the Git repo.
+
 The following resources were referenced to complete this challenge:
 
 1. Table format - https://www.w3schools.com/html/html_table_borders.asp
